@@ -34,18 +34,22 @@ data = pd.read_csv("StudentsPerformance.csv")
 
 # Creating new column called Avg-Scores to average out the scores in an attempt to see the correlation
 # between test scores and social dynamics #
-data['Avg-Score'] = data['math-score'] + data['reading-score'] + data['writing-score']
+data['Avg-Score'] = (data['math-score'] + data['reading-score'] + data['writing-score'])/3
 # print(data.head(5))
 
 # Dropping columns that does not pertain for this research
 data_new = data.drop(columns=['gender', 'race', 'lunch', 'preparation-course', 'math-score', 'reading-score', 'writing-score'])
 (data_new.sort_values(['parental-education', 'Avg-Score'], ascending=False))
 
-fig, ax = plt.subplots(figsize=(10, 10))
+
+fig, ax = plt.subplots(figsize=(10, 20))
 ax.scatter(x = data_new['parental-education'], y = data_new['Avg-Score'])
 plt.xlabel('Parental Education')
 plt.ylabel('Childs Avg Score')
+plt.title("Childs Avg Scores with Parents of Different Educational Backgrounds")
 plt.show()
+
+
 
 
 
