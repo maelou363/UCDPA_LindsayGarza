@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd 
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
@@ -42,6 +42,7 @@ data_new = data.drop(columns=['gender', 'race', 'lunch', 'preparation-course', '
 (data_new.sort_values(['parental-education', 'Avg-Score'], ascending=False))
 
 
+# Plotting/Graphing dataset
 fig, ax = plt.subplots(figsize=(10, 20))
 ax.scatter(x = data_new['parental-education'], y = data_new['Avg-Score'])
 plt.xlabel('Parental Education')
